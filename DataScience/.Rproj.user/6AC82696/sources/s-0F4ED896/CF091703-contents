@@ -1,0 +1,23 @@
+#load data
+mails_acp <- read.csv("/Users/pierreperrin/Desktop/IG4/semestre7/Projet_DataScience/dataset_first_acp_test.csv")
+mails_acm <- read.csv("/Users/pierreperrin/Desktop/IG4/semestre7/Projet_DataScience/dataset_first_acp_test.csv")
+
+mails_anova1 <- read.csv("/Users/pierreperrin/Desktop/IG4/semestre7/Projet_DataScience/anova1.csv")
+mails_anova1_1 <- read.csv("/Users/pierreperrin/Desktop/IG4/semestre7/Projet_DataScience/anova1_1.csv")
+mails_anova1_2 <- read.csv("/Users/pierreperrin/Desktop/IG4/semestre7/Projet_DataScience/anova1_2.csv")
+
+
+#load library 
+library(FactoMineR)
+
+#pas de lien entre la la taille du contenu la taille du sujet le nombre de cc
+resPCA <- PCA(mails)
+resPCA$ind
+
+#anova1_1 facteur content_size et moment
+summary(aov(mails_anova1_1$content_size~mails_anova1_1$Moment))
+# le moment de la journée suivant lequel on envoit le mail influe sur la taille du mail -> afc pour voir le lien entre le moment de la journée et la taille (gros, petit, moyen)
+
+#anova1_2 facteur subject_size et moment
+summary(aov(mails_anova1_2$subject_size~mails_anova1_2$Moment))
+

@@ -1,0 +1,7 @@
+library(FactoMineR)
+resPCA <- PCA(cidre)
+resPCA$eig
+eigenvalues <- resPCA$eig
+barplot(eigenvalues[,1],names.arg =1:nrow(eigenvalues),main="Eboulis des valeurs propres", xlab ="Principal Components", ylab="eigenvalue", col="steelblue")
+lines(x = 1:nrow(eigenvalues), eigenvalues[, 1], 
+      +       type="b", pch=19, col = "red")
